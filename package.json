@@ -3,6 +3,10 @@
   "description": "wait for server to listen",
   "version": "0.1.0",
   "author": "sasa+1 <sasaplus1@gmail.com>",
+  "dependencies": {
+    "commander": "^10.0.0",
+    "debug": "^4.3.4"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
