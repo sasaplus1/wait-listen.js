@@ -53,6 +53,7 @@
     "lint:eslint": "eslint .",
     "lint:fixpack": "npx fixpack --dryRun",
     "lint:prettier": "prettier --check .",
+    "postbuild": "run-p --print-label fix:prettier",
     "test": "node --test"
   },
   "types": "./index.d.ts"
