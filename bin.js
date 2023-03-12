@@ -15,7 +15,6 @@ program
   .option('-c, --command <command>', 'execute command', '')
   .option('-d, --debug', `show command's stdout and stderr`, false)
   .option('-i, --interval <ms>', 'request interval', 500)
-  .option('-k, --kill', 'kill command process when end', false)
   .option('-s, --status <code>', 'target status code', 200)
   .option('-t, --timeout <ms>', 'timeout', 1000 * 60 * 3)
   .version(version, '-v, --version')
@@ -57,10 +56,8 @@ async function onAction() {
 
   const { command, debug } = opts;
 
-  let subprocess;
-
   if (command) {
-    subprocess = executeCommand(command, { debug });
+    executeCommand(command, { debug });
   }
 
   //-- wait for server to listen -----------------------------------------------
@@ -76,12 +73,4 @@ async function onAction() {
   }))
     ? 0
     : 3;
-
-  //-- kill subprocess if flagged ----------------------------------------------
-
-  const { kill } = opts;
-
-  if (kill && subprocess) {
-    subprocess.kill();
-  }
 }
