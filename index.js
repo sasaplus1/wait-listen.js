@@ -1,4 +1,4 @@
-const { spawn } = require('node:child_process');
+const childProcess = require('node:child_process');
 const http = require('node:http');
 const https = require('node:https');
 const { setTimeout: setTimeoutPromise } = require('node:timers/promises');
@@ -12,14 +12,14 @@ const log = debug('wait-listen');
  *
  * @param {string} command - command string
  * @param {{ debug: boolean }} options - options
- * @returns {ChildProcess}
+ * @returns {childProcess.ChildProcess}
  */
 function executeCommand(command, options = { debug: false }) {
   log('executeCommand', command, options);
 
   const { debug } = options;
 
-  const subprocess = spawn(command, [], {
+  const subprocess = childProcess.spawn(command, [], {
     detached: true,
     shell: true,
     stdio: debug ? ['ignore', 'inherit', 'inherit'] : 'ignore'
