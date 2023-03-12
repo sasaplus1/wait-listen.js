@@ -43,9 +43,9 @@ jobs:
       - run: npm ci
       - run: ./bin.js --help
       - run: ./bin.js -i 50 -c 'sleep 1 && npx http-server -p 8989 .' http://127.0.0.1:8989
-      - run: kill -s TERM "$(ps -o pid,comm | awk '$2 ~ /^http-server$/ { print $1 }')"
-        if: runner.os == 'macOS'
       - run: kill -s TERM "$(lsof -i:8989 | awk '$1 ~ /^node$/ { print $2 }')"
+        if: runner.os == 'macOS'
+      - run: kill -s TERM "$(ps -o pid,comm | awk '$2 ~ /^http-server$/ { print $1 }')"
         if: runner.os == 'Linux'
       - id: http-server
         run: |
