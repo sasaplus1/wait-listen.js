@@ -22,7 +22,7 @@ program
 
 program.on('--help', function () {
   console.log('');
-  console.log('Usage:');
+  console.log('Example:');
   console.log('  $ wait-listen http://localhost:8080 && echo ready');
   console.log(`  $ wait-listen http://localhost:8080 -c 'node server.js'`);
   console.log('  $ wait-listen http://localhost:8080 -s 418');
