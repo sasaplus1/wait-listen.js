@@ -22,7 +22,8 @@
     "node": ">=18"
   },
   "files": [
-    "./index.js"
+    "./index.js",
+    "./index.d.ts"
   ],
   "license": "MIT",
   "main": "./index.js",
@@ -43,6 +44,7 @@
     "url": "https://github.com/sasaplus1/wait-listen.js.git"
   },
   "scripts": {
+    "build": "npx --package typescript tsc index.js --declaration --allowJs --emitDeclarationOnly --outDir .",
     "fix": "run-p --print-label fix:*",
     "fix:eslint": "eslint --fix .",
     "fix:fixpack": "npx fixpack",
@@ -52,5 +54,6 @@
     "lint:fixpack": "npx fixpack --dryRun",
     "lint:prettier": "prettier --check .",
     "test": "node --test"
-  }
+  },
+  "types": "./index.d.ts"
 }
