@@ -40,6 +40,7 @@ jobs:
         with:
           cache: npm
           node-version: lts/*
+      - run: npm ci
       - run: ./bin.js --help
       - run: ./bin.js -i 50 -c 'sleep 1 && npx http-server -p 8989 .' http://127.0.0.1:8989
       - run: kill -s TERM "$(ps -o pid,command | awk '/http-server -p 8989 ./ { print $1 }')"
