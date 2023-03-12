@@ -24,9 +24,9 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: ./bin.js --help
-      - run: ./bin.js -k -i 50 -c 'npx http-server -p 9999 .' http://127.0.0.1:9999
+      - run: ./bin.js -k -i 50 -c 'npx http-server -p 8989 .' http://127.0.0.1:8989
       - id: http-server
         run: |
-          nohup npx http-server -p 9999 &
+          nohup npx http-server -p 8383 &
           echo "pid=$!" >> "$GITHUB_OUTPUT"
-      - run: ./bin.js -i 50 http://127.0.0.1:9999 && kill -9 '${{ steps.http-server.outputs.pid }}'
+      - run: ./bin.js -i 50 http://127.0.0.1:8383 && kill -9 '${{ steps.http-server.outputs.pid }}'
