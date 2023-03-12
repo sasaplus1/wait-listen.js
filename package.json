@@ -21,6 +21,9 @@
   "engines": {
     "node": ">=18"
   },
+  "files": [
+    "./index.js"
+  ],
   "license": "MIT",
   "main": "./index.js",
   "prettier": {
