@@ -65,12 +65,15 @@ async function onAction() {
   const { interval, status, timeout } = opts;
 
   process.exitCode = 3;
-  process.exitCode = (await waitListen({
-    interval,
-    status,
-    timeout,
-    url
-  }))
-    ? 0
-    : 3;
+
+  if (
+    await waitListen({
+      interval,
+      status,
+      timeout,
+      url
+    })
+  ) {
+    process.exitCode = 0;
+  }
 }
