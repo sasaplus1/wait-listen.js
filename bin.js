@@ -46,6 +46,12 @@ async function onAction() {
 
   const maybeUrl = args[0];
 
+  if (typeof maybeUrl === 'undefined') {
+    process.exitCode = 1;
+    console.error('URL is required');
+    return;
+  }
+
   let url;
 
   try {
