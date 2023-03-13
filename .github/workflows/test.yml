@@ -9,8 +9,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
-    name: test
+  lint-and-unit-testing:
+    name: lint and unit testing
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -23,8 +23,8 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
-  command:
-    name: command
+  cli-command-testing:
+    name: CLI command testing
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     strategy:
       fail-fast: false
