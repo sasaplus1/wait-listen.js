@@ -39,6 +39,7 @@
       }
     ]
   },
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/sasaplus1/wait-listen.js.git"
@@ -56,5 +57,6 @@
     "postbuild": "run-p --print-label fix:prettier",
     "test": "node --test"
   },
+  "sideEffects": false,
   "types": "./index.d.ts"
 }
