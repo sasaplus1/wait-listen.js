@@ -1,13 +1,11 @@
 name: publish
 
 on:
-  pull_request:
+  push:
     branches:
       - main
     paths:
       - 'package.json'
-    types:
-      - closed
 
 jobs:
   publish:
